@@ -1,5 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 
 
@@ -37,10 +38,10 @@ const questions = [
       "GNU AGPLv3",
       "GNU GPLv3",
       "GNU LGPLv3",
-      "Mozilla Public License 2.0",
-      "Apache License 2.0",
-      "MIT License",
-      "Boost Software License 1.0",
+      "Mozilla Public 2.0",
+      "Apache 2.0",
+      "MIT",
+      "Boost Software 1.0",
       "The Unlicense"
     ]
   },
@@ -57,10 +58,15 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data)
 }
 
 function init() {
-  inquirer.prompt(questions);
+  inquirer.prompt(questions).then(data => {
+    console.log(generateMarkdown(data))
+    }
+    )
+  ;
 }
 
 init();

@@ -34,7 +34,7 @@ ${data.tests}
 ## Questions? 
 * Please email me if you have any questions at ${data.email}
 * OR visit my [GitHub](https://github.com/${data.username}): 
-* [![${data.username}](https://github.com/${data.username}.png)](https://github.com/${data.username})
+* [![${data.username}](https://github.com/${data.username}.png?size=200)](https://github.com/${data.username})
 `;
 }
 

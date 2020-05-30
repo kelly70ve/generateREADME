@@ -12,6 +12,11 @@ const questions = [
   },
   {
     type: "input",
+    name: "email",
+    message: "What is your email?"
+  },
+  {
+    type: "input",
     name: "title",
     message: "What would you like to title your project?"
   },
@@ -58,15 +63,16 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data)
+  fs.writeFile(fileName, data, (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
 }
 
 function init() {
   inquirer.prompt(questions).then(data => {
-    console.log(generateMarkdown(data))
-    }
-    )
-  ;
+    writeToFile("README.md", generateMarkdown(data))
+    });
 }
 
 init();
